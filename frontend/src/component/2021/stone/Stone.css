@@ -1,0 +1,9 @@
+.div_stone_button > button{
+    width: 100px;
+    background-color: rgb(92, 92, 255);
+    color: white;
+    border-radius: 5px;
+}
+.div_stone_button > button[disabled]{
+    background-color: gray;
+}

@@ -1,0 +1,16 @@
+.table_title_1{
+    width: 200px;
+}
+thead{    
+    background-color: rgb(92, 92, 255);
+}
+.btn_rock{
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    width:60px;
+    font-size: calc(10px + 1.5vmin);
+}
+.info{
+    width: 120px;
+}

@@ -1,0 +1,124 @@
+table {
+    border: 2px solid skyblue;
+}
+
+th,
+td {
+    border: 2px solid skyblue;
+    width: 50px;
+    border-radius: 5px;
+}
+.table_title{
+    width: 15%;
+    background-color: rgb(92, 92, 255);
+}
+
+ul {
+    text-align: left;
+}
+
+.contents {
+    margin-bottom: 30px;
+}
+
+.stack_table {
+    text-align: center;
+    margin: 0 auto;
+}
+.button_div{
+    width: 55%;
+    margin: 0 auto;
+}
+.stack_btn {
+    width: 100px;
+    padding: 1%;
+    margin: 1%;
+    background-color: rgb(92, 92, 255);
+    color: white;
+    border-radius: 5px;
+}
+
+button[disabled]{
+    background-color: gray;
+}
+button:hover{
+    cursor:pointer;
+}
+button[disabled]{
+    pointer-events: none;
+}
+.stack_btn:hover{
+    background-color: rgb(7, 192, 28);
+}
+
+.modal {
+    color: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+}
+
+.modal>section {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    animation: modal-show 0.3s;
+    overflow: hidden;
+    margin-top: 10%;
+}
+
+.modal>section>header {
+    position: relative;
+    padding: 16px 64px 16px 16px;
+    background-color: #f1f1f1;
+    font-weight: 700;
+}
+
+.modal>section>header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: #999;
+    background-color: transparent;
+}
+
+.modal>section>main {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+}
+
+.modal>section>footer {
+    padding: 12px 16px;
+    text-align: right;
+}
+
+.modal>section>footer button {
+    padding: 6px 12px;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.modal.openModal {
+    display: flex;
+    align-items: center;
+    animation: modal-bg-show 0.3s;
+}

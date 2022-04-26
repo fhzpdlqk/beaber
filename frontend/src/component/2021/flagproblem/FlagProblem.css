@@ -1,0 +1,52 @@
+p{
+    text-indent:2%;
+}
+.problem_list{
+    float: left;
+    width: 50%;
+}
+.feature_btn{
+    float: right;
+    width: 30%;
+}
+.problem_btn{
+    margin: 0 auto;
+}
+.flag{
+    display: flex;
+    margin: 0 auto;
+    width: 45%
+}
+.problem{
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+}
+.problem_content{
+    height: 120px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.problem_list > button{
+    margin: 1%;
+    background-color: rgb(92, 92, 255);
+    color: white;
+    border-radius: 5px;
+}
+.feature_btn > button{
+    margin: 1%;
+    background-color: #fe2ed4;
+    color: white;
+    border-radius: 5px;
+}
+.flag_btn{
+    background-color: red;
+    color: white;
+    margin-left: 5px;
+}
+.flag_btn2 {
+    background-color: rgb(92, 92, 255);
+    color: white;
+    margin-left: 5px;
+}

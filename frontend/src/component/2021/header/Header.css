@@ -1,0 +1,19 @@
+.header{
+    height: 5%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+.header > button{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font: bold;
+    cursor: pointer;
+}
+.header > button:hover{
+    color: red;
+}
