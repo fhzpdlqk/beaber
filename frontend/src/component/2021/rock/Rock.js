@@ -7,7 +7,15 @@ const Rock = () => {
     const [first, setFirst] = useState([0,0,0,0,0,0,0,0,0,0,0,0])
     const [second, setSecond] = useState([0,0,0,0,0,0,0,0,0,0,0,0])
     const [firstWin, setFirstWin] = useState(0)
+    const [secondWin, setSecondWin] = useState(0)
+    const [showPopup, setShowPopup] = useState(false)
+    const [result, setResult] = useState(0)
+
+    const close = () =>{
+        setShowPopup(false)
+    }
     const click = (index) => {
+        console.log(first)
         var temp = [...first]
         temp[index] += 1
         if(temp[index] == 3){
@@ -15,15 +23,49 @@ const Rock = () => {
         } 
         setFirst(temp)
     }
+    const clickSecond = (index) => {
+        var temp = [...second]
+        temp[index] += 1
+        if(temp[index] == 3){
+            temp[index] = 0
+        } 
+        setSecond(temp)
+    }
     useEffect(() => {
         var temp = 0
-        for(let i = 0; i < 12; i++){
+        for(let i = 0; i < first.length; i++){
             if(first[i] == 0 && yong[i] == 1) temp += 1
             if(first[i] == 1 && yong[i] == 2) temp += 1
-            if(first[i] == 2 && yong[i] == 3) temp += 1
+            if(first[i] == 2 && yong[i] == 0) temp += 1
         }
         setFirstWin(temp)
+        var temp2 = 0
+        for(let i = 0; i < second.length; i++){
+            if(second[i] == 0 && yong[i] == 1) temp2 += 1
+            if(second[i] == 1 && yong[i] == 2) temp2 += 1
+            if(second[i] == 2 && yong[i] == 0) temp2 += 1
+        }
+        setSecondWin(temp2)
     },[first, second])
+    const submit = () => {
+        var check1 = false
+        if(second.filter(element => 1 === element).length == 7 &&
+        second.filter(element => 0 === element).length == 3 &&
+        second.filter(element => 2 === element).length == 2){
+            if(secondWin == 2) check1 = true
+            else check1 = false
+        }
+        var check2 = false
+        if(first.filter(element => 1 === element).length == 7 &&
+        first.filter(element => 0 === element).length == 3 &&
+        first.filter(element => 2 === element).length == 2){
+            if(firstWin == 11) check2 = true
+            else check2 = false
+        }
+        var score = check2 * 14 * 30 / 100 + check1 * 14 * 70 / 100
+        setResult(score)
+        setShowPopup(true)
+    }
     return (
         <div>
             <h1>20. 가위바위보 (14점)</h1>
@@ -98,8 +140,36 @@ const Rock = () => {
                             보 : {first.filter(element => 2 === element).length} / 2<br/>
                         </th>
                     </tr>
+                    <tr>
+                        <th>두 번째 대결</th>
+                        {second.map((data,index) => (<th><button className="btn_rock" onClick={() => clickSecond(index)}>{word[data]}</button></th>))}
+                        <th className="info">승수 : {secondWin} <br/>
+                            가위 : {second.filter(element => 1 === element).length} / 7<br/>
+                            바위 : {second.filter(element => 0 === element).length} / 3<br/>
+                            보 : {second.filter(element => 2 === element).length} / 2<br/>
+                        </th>
+                    </tr>
                 </table>
+                <button className="submit" onClick = {() => submit()}>제출하기</button>
             </div>
+            {showPopup ? (
+                <div className="modal">
+                    <section>
+                        <header>
+                            결과
+                            <button className="close" onClick={close}>
+                                &times;
+                            </button>
+                        </header>
+                        <main>{result}점 입니다.</main>
+                        <footer>
+                            <button className="close" onClick={close}>
+                                close
+                            </button>
+                        </footer>
+                    </section>
+                </div>
+            ) : null}
         </div>
     )
 }
